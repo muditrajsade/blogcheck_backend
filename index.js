@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const admin = require("firebase-admin");
 const cors = require("cors");
@@ -7,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 const axios = require('axios');
 
-const serviceAccount = require("./serviceaccounts.json");
+const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -15,7 +16,7 @@ admin.initializeApp({
 
 let db = admin.firestore();
 
-const GEMINI_API_KEY = "AIzaSyBh--0trqntW5jj67-gTOyi4QRL4VZbg2Q";  // Replace with your real key
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;  // Replace with your real key
 
 function extractSubdomain(blogUrl) {
   try {
