@@ -30,6 +30,22 @@ function extractSubdomain(blogUrl) {
   }
 }
 
+
+function extractSubdomain_rules(blogUrl) {
+  try {
+    const url = new URL(blogUrl);
+    const hostname = url.hostname; // e.g., abgdh.blogspot.com
+    if (hostname.endsWith(".blogspot.com")) {
+      const subdomain = hostname.replace(".blogspot.com", "");
+      return subdomain;
+    }
+    return null;
+  } catch (error) {
+    console.error("Invalid blog URL:", blogUrl);
+    return null;
+  }
+}
+
 app.get('/',function(req,res){
 
   res.sendFile(path.join(__dirname,'index.html'));
@@ -41,7 +57,8 @@ app.post('/rules', async (req, res) => {
   let rgh = req.body.blogUrl;
   console.log(rgh);
 
-  let abdf = extractSubdomain(rgh);
+  let abdf = extractSubdomain_rules(rgh);
+  console.log(abdf);
   
 
   try{
