@@ -29,11 +29,11 @@
 | Layer         | Tech                        |
 |--------------|-----------------------------|
 | Frontend     | React.js                    |
-| Backend      | Flask / Node.js             |
+| Backend      | Node.js             |
 | Authentication | Google OAuth 2.0          |
-| Database     | MongoDB / PostgreSQL        |
+| Database     | Firestore database        |
 | AI Service   | Gemini 1.5 Flash (LLM)      |
-| Deployment   | Railway / Render / Vercel   |
+| Deployment   | Vercel   |
 | Blog Posting | Blogger Data API v3         |
 
 ---
