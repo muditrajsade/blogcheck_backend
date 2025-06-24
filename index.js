@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const axios = require('axios');
+const path = require("path");
 
 const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT);
 
@@ -28,6 +29,12 @@ function extractSubdomain(blogUrl) {
     return null;
   }
 }
+
+app.get('/',function(req,res){
+
+  res.sendFile(path.join(__dirname,'index.html'));
+
+})
 
 app.post('/rules', async (req, res) => {
 
